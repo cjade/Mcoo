@@ -25,7 +25,14 @@ class LoginController extends Controller
     public function handleProviderCallback($service)
     {
         $user = Socialite::driver($service)->user();
-        dd($user);
+        switch ($service){
+            case 'qq':
+                dd($user);
+                break;
+            case 'github':
+                dd($user);
+                break;
+        }
         // $user->token;
     }
 }
