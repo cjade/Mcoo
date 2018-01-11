@@ -41,4 +41,10 @@ return [
         'redirect' => env('QQ_REDIRECT'),
     ],
 
+    'github' => [
+        'client_id' => env('GITHUB_ID'),
+        'client_secret' => env('GITHUB_KEY'),
+        'redirect' => env('GITHUB_REDIRECT'),
+    ],
+
 ];
