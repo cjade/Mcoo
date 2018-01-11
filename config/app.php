@@ -180,8 +180,8 @@ return [
         /**
          * Other service providers...
          */
-        Laravel\Socialite\SocialiteServiceProvider::class,
-
+//        Laravel\Socialite\SocialiteServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
     ],
 
     /*
