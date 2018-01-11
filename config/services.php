@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'qq' => [
+        'client_id' => env('QQ_ID'),
+        'client_secret' => env('QQ_KEY'),
+        'redirect' => env('QQ_REDIRECT'),
+    ],
+
 ];
