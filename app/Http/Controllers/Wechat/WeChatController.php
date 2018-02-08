@@ -75,9 +75,9 @@ class WeChatController extends Controller
         switch ($message['Content']) {
             case 'help':
                 $menu = "指令菜单:\n";
-                $menu += "1. 用户信息\n";
-                $menu += "2. dsd\n";
-                $menu += "3. dsd\n";
+                $menu .= "1. 用户信息\n";
+                $menu .= "2. dsd\n";
+                $menu .= "3. dsd\n";
                 return $menu;
                 break;
             case 'aa'://取消关注
