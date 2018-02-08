@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\WeChat;
 
 use App\Http\Controllers\Controller;
+use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
 use Illuminate\Support\Facades\Log;
 
