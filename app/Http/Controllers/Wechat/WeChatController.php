@@ -27,7 +27,7 @@ class WeChatController extends Controller
     public function aa()
     {
         WeChat::initWechat();
-        return WeChat::aa("hh");
+        return WeChat::sendTextMessage("hh");
     }
 
 }

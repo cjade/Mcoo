@@ -17,6 +17,9 @@ class WeChatController
 {
     public static  $wechatInstance = null;
 
+    /**
+     * 设置微信实例
+     */
     public static function initWechat()
     {
         self::$wechatInstance = app('wechat.official_account');
@@ -30,7 +33,6 @@ class WeChatController
     public static function serve()
     {
         Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
-//        self::$app = app('wechat.official_account');
         self::$wechatInstance->server->push(function ($message) {
             switch ($message['MsgType']) {
                 case 'event':
@@ -129,7 +131,12 @@ class WeChatController
         }
     }
 
-    public static function aa($msg)
+    /**
+     * 发送文本消息
+     * @param $msg
+     * @return mixed
+     */
+    public static function sendTextMessage($msg)
     {
         $message = new Text($msg);
         return self::$wechatInstance->customer_service->message($message)->to("oGpl_wpt1lW4F6-WSnjh2p6752Kc")->send();
