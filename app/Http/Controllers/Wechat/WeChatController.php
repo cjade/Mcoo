@@ -71,7 +71,7 @@ class WeChatController extends Controller
     public static function _testMsgHandler($message){
         switch ($message['Content']){
             case 'help':
-                return "指令菜单:\n1. 用户信息 \n2. dsd \n3. dsa";
+                return "指令菜单:             \n1. 用户信息 \n2. dsd \n3. dsa";
                 break;
             case 'aa'://取消关注
                 return 'aa';
