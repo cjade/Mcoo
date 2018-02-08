@@ -22,12 +22,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group([/*'middleware' => ['web', 'wechat.oauth'],*/'namespace' => 'Wechat', 'prefix' => 'wechat'], function(){
+Route::group(['namespace' => 'Wechat', 'prefix' => 'wechat'], function(){
     Route::any('/wechat', 'WeChatController@serve');
-    Route::get('/user', function () {
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
-        dd($user);
+    Route::group(['middleware' => ['web', 'wechat.oauth'],],function (){
+        Route::get('/user', function () {
+            $user = session('wechat.oauth_user'); // 拿到授权用户资料
+
+            dd($user);
+        });
     });
+
 });
 
