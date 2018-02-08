@@ -20,6 +20,7 @@ class WeChatController extends Controller
      */
     public function serve()
     {
+        WeChat::initWechat();
         return WeChat::serve();
     }
 

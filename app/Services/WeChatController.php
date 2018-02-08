@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Log;
 
 class WeChatController
 {
-    public static $app = null;
+    public static  $wechatInstance = null;
+
+    public static function initWechat()
+    {
+        self::$wechatInstance = app('wechat.official_account');
+    }
+
     /**
      * 处理微信的请求消息
      *
@@ -24,9 +30,8 @@ class WeChatController
     public static function serve()
     {
         Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
-
-        self::$app = app('wechat.official_account');
-        self::$app->server->push(function ($message) {
+//        self::$app = app('wechat.official_account');
+        self::$wechatInstance->server->push(function ($message) {
             switch ($message['MsgType']) {
                 case 'event':
                     return self::_eventMsgHandler($message);
@@ -56,7 +61,7 @@ class WeChatController
             }
         });
 
-        return $app->server->serve();
+        return self::$wechatInstance->server->serve();
     }
 
     /**
