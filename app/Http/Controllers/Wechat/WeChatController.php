@@ -28,7 +28,7 @@ class WeChatController extends Controller
                     return self::_eventMsgHandler($message);
                     break;
                 case 'text':
-                    return '收到文字消息';
+                    return self::_testMsgHandler($message);
                     break;
                 case 'image':
                     return '收到图片消息';
