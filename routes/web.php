@@ -21,3 +21,8 @@ Route::get('auth/{service}/callback', 'LoginController@handleProviderCallback');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['namespace' => 'Wechat', 'prefix' => 'wechat'], function(){
+    Route::any('/wechat', 'WeChatController@serve');
+});
+
