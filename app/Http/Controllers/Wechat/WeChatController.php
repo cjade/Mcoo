@@ -23,10 +23,9 @@ class WeChatController extends Controller
 
         $app = app('wechat.official_account');
         $app->server->push(function($message){
-            return $message['MsgType'];
             switch ($message['MsgType']) {
                 case 'event':
-                    return '收到事件消息';
+                    return '欢迎关注 让时光有力量！';
                     break;
                 case 'text':
                     return '收到文字消息';
