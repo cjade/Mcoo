@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\WeChat;
 
 use App\Http\Controllers\Controller;
+use EasyWeChat\Kernel\Messages\NewsItem;
 use Illuminate\Support\Facades\Log;
 
 class WeChatController extends Controller
@@ -82,6 +83,18 @@ class WeChatController extends Controller
                 break;
             case '1':
                 return $message['FromUserName'] ;
+                break;
+            case '2':
+                $items = [
+                    new NewsItem([
+                        'title'       => "标题",
+                        'description' => '描述',
+                        'url'         => "https://mp.weixin.qq.com/s/PfZthLNbtPlH_RX63ro6pw",
+                        'image'       => "https://mmbiz.qpic.cn/mmbiz_png/FnAYjz2c5lJVUyFXKX4ib4xhxITrvF3bz82O3EaluwZIc3EaicMoUKIE3PseianiavO91XqZ0aia4eb4BDlWecSSia2g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1",
+                        ]),
+                    ];
+                    $news = new News($items);
+                return $news;
                 break;
             default:
                 return '收到文字消息';
