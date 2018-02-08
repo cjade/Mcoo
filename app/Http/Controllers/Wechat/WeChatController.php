@@ -59,7 +59,7 @@ class WeChatController extends Controller
 
         switch ($message['Event']){
             case 'subscribe':
-                return '欢迎关注 让时光有力量！';
+                return '欢迎关注 让时光有力量！输入help查看菜单';
                 break;
             case 'unsubscribe'://取消关注
                 Log::info('取消关注');
@@ -71,7 +71,7 @@ class WeChatController extends Controller
     public static function _testMsgHandler($message){
         switch ($message['Content']){
             case 'help':
-                return "1. ds \n2. dsd \n3. dsa";
+                return "指令菜单:\n1. 用户信息 \n2. dsd \n3. dsa";
                 break;
             case 'aa'://取消关注
                 return 'aa';
