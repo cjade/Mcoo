@@ -90,6 +90,7 @@ class WeChatController extends Controller
                 $menu .= "1. 用户信息\n";
                 $menu .= "2. 最新文章\n";
                 $menu .= "3. 博客首页\n";
+                $menu .= "__________________________";
                 return $menu;
                 break;
             case '1':
