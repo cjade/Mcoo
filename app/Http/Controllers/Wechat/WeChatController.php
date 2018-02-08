@@ -91,7 +91,7 @@ class WeChatController extends Controller
                         'title'       => "标题",
                         'description' => '描述',
                         'url'         => "https://mp.weixin.qq.com/s/PfZthLNbtPlH_RX63ro6pw",
-                        'image'       => "https://mmbiz.qpic.cn/mmbiz_png/FnAYjz2c5lJVUyFXKX4ib4xhxITrvF3bz82O3EaluwZIc3EaicMoUKIE3PseianiavO91XqZ0aia4eb4BDlWecSSia2g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1",
+                        'image'       => "https://static.oschina.net/uploads/img/201801/31141427_38sD.png",
                         ]),
                     ];
                     $news = new News($items);
