@@ -80,8 +80,8 @@ class WeChatController extends Controller
                 $menu .= "3. dsd\n";
                 return $menu;
                 break;
-            case 'aa'://取消关注
-                return 'aa';
+            case '1':
+                return $message['FromUserName'] ;
                 break;
             default:
                 return '收到文字消息';
