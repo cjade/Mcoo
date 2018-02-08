@@ -28,7 +28,7 @@ class WeChatController extends Controller
     {
         $message = new Text('Hello world!');
         $app = app('wechat.official_account');
-        $app->customer_service->message($message)->to("oGpl_wpt1lW4F6-WSnjh2p6752Kc")->send();
+        return $app->customer_service->message($message)->to("oGpl_wpt1lW4F6-WSnjh2p6752Kc")->send();
     }
 
 }
