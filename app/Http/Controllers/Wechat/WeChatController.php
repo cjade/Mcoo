@@ -28,4 +28,5 @@ class WeChatController extends Controller
 
         return $app->server->serve();
     }
+
 }
