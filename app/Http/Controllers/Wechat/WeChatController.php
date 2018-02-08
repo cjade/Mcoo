@@ -88,11 +88,17 @@ class WeChatController extends Controller
             case '2':
                 $items = [
                     new NewsItem([
-                        'title'       => "标题",
-                        'description' => '描述',
+                        'title'       => "阿里云Centos搭建lnmp(php7.2+nginx+mysql5.7)",
+                        'description' => '阿里云Centos搭建lnmp(php7.2+nginx+mysql5.7)',
                         'url'         => "https://mp.weixin.qq.com/s/PfZthLNbtPlH_RX63ro6pw",
                         'image'       => "https://static.oschina.net/uploads/img/201801/31141427_38sD.png",
                         ]),
+                    new NewsItem([
+                        'title'       => "GitHub利用webhook实现push时项目自动部署",
+                        'description' => 'GitHub利用webhook实现push时项目自动部署',
+                        'url'         => "https://my.oschina.net/silents/blog/1613563",
+                        'image'       => "https://static.oschina.net/uploads/img/201801/26154918_MbB6.jpg",
+                    ]),
                     ];
                     $news = new News($items);
                 return $news;
