@@ -88,8 +88,8 @@ class WeChatController extends Controller
             case 'help':
                 $menu = "指令菜单:\n";
                 $menu .= "1. 用户信息\n";
-                $menu .= "2. dsd\n";
-                $menu .= "3. dsd\n";
+                $menu .= "2. 最新文章\n";
+                $menu .= "3. 博客首页\n";
                 return $menu;
                 break;
             case '1':
