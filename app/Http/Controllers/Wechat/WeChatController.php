@@ -58,6 +58,11 @@ class WeChatController extends Controller
         return $app->server->serve();
     }
 
+    /**
+     * 收到事件消息
+     * @param $message
+     * @return string
+     */
     public static function _eventMsgHandler($message)
     {
 
@@ -72,6 +77,11 @@ class WeChatController extends Controller
 
     }
 
+    /**
+     * 收到文字消息
+     * @param $message
+     * @return News|string
+     */
     public static function _testMsgHandler($message)
     {
         switch ($message['Content']) {
@@ -104,7 +114,7 @@ class WeChatController extends Controller
                 return $news;
                 break;
             default:
-                return '收到文字消息';
+                return '你是不是傻!';
                 break;
         }
     }
