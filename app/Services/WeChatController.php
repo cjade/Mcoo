@@ -17,7 +17,7 @@ class WeChatController
 {
     public static  $wechatInstance = null;
 
-    public  function initWechat()
+    public static function initWechat()
     {
         self::$wechatInstance = app('wechat.official_account');
     }
