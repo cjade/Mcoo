@@ -5,14 +5,17 @@
  * Date: 2018/2/8
  * Time: 下午6:04
  */
+
 namespace App\Services;
 
 use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
+use EasyWeChat\Kernel\Messages\Text;
 use Illuminate\Support\Facades\Log;
 
 class WeChatController
 {
+    public static $app = null;
     /**
      * 处理微信的请求消息
      *
@@ -22,8 +25,8 @@ class WeChatController
     {
         Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
 
-        $app = app('wechat.official_account');
-        $app->server->push(function ($message) {
+        self::$app = app('wechat.official_account');
+        self::$app->server->push(function ($message) {
             switch ($message['MsgType']) {
                 case 'event':
                     return self::_eventMsgHandler($message);
@@ -92,7 +95,7 @@ class WeChatController
                 return $menu;
                 break;
             case '1':
-                return $message['FromUserName'] ;
+                return $message['FromUserName'];
                 break;
             case '2':
                 $items = [
@@ -109,7 +112,7 @@ class WeChatController
                         'image'       => "https://static.oschina.net/uploads/img/201801/26154918_MbB6.jpg",
                     ]),
                 ];
-                $news = new News($items);
+                $news  = new News($items);
                 return $news;
                 break;
             case '3':
@@ -119,6 +122,12 @@ class WeChatController
                 return '你是不是傻!';
                 break;
         }
+    }
+
+    public static function aa($msg)
+    {
+        $message = new Text($msg);
+        return self::$app->customer_service->message($message)->to("oGpl_wpt1lW4F6-WSnjh2p6752Kc")->send();
     }
 
 
