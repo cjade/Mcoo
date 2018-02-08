@@ -23,7 +23,6 @@ class WeChatController extends Controller
 
         $app = app('wechat.official_account');
         $app->server->push(function($message){
-            dd($message);
             return "欢迎关注 让时光有力量！";
         });
 
