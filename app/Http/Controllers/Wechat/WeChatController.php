@@ -113,6 +113,9 @@ class WeChatController extends Controller
                     $news = new News($items);
                 return $news;
                 break;
+            case '3':
+                return "<a href='https://www.mcoo.me/'>博客首页</a>";
+                break;
             default:
                 return '你是不是傻!';
                 break;
