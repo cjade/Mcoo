@@ -25,7 +25,7 @@ class WeChatController extends Controller
         $app->server->push(function($message){
             switch ($message['MsgType']) {
                 case 'event':
-                    return '欢迎关注 让时光有力量！';
+                    return self::_eventMsgHandler($message);
                     break;
                 case 'text':
                     return '收到文字消息';
@@ -47,12 +47,25 @@ class WeChatController extends Controller
                     break;
                 // ... 其它消息
                 default:
-                    return '欢迎关注 让时光有力量！';
+                    return '';
                     break;
             }
         });
 
         return $app->server->serve();
+    }
+
+    public static function _eventMsgHandler($message){
+
+        switch ($message['Event']){
+            case 'subscribe':
+                return '欢迎关注 让时光有力量！';
+                break;
+            case 'unsubscribe'://取消关注
+                Log::info('取消关注');
+                break;
+        }
+
     }
 
 }
