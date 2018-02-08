@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['namespace' => 'Wechat', 'prefix' => 'wechat'], function(){
     Route::any('/wechat', 'WeChatController@serve');
+    Route::get('/aa', 'WeChatController@aa');
 
     Route::group(['middleware' => ['web', 'wechat.oauth'],],function (){
         Route::get('/user', function () {
