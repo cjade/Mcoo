@@ -136,7 +136,7 @@ class WeChatController
      * @param $msg
      * @return mixed
      */
-    public static function sendTextMessage($msg)
+    public static function sendTextMessage($member_id,$msg)
     {
         $message = new Text($msg);
         return self::$wechatInstance->customer_service->message($message)->to("oGpl_wpt1lW4F6-WSnjh2p6752Kc")->send();
