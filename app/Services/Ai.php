@@ -49,10 +49,8 @@ class Ai
     public static function doHttpPost($url, $params)
     {
         $curl = curl_init();
-        Log::info("dsad123");
         $response = false;
         do {
-            Log::info("dsad");
             // 1. 设置HTTP URL (API地址)
             curl_setopt($curl, CURLOPT_URL, $url);
 

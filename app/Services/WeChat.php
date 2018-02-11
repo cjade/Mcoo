@@ -138,6 +138,7 @@ class WeChat
 
                 $params['sign'] = Ai::getReqSign($params, $appkey);
 
+                Log::info($message['Content']);
                 Log::info(strval(time()));
                 Log::info(strval(rand()));
                 Log::info($params['sign']);
