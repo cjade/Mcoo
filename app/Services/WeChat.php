@@ -137,7 +137,7 @@ class WeChat
                 );
 
                 $params['sign'] = Ai::getReqSign($params, $appkey);
-
+                Log::info($params['sign']);
                 // 执行API调用
                 $url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans';
                 $response = Ai::doHttpPost($url, $params);
