@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 
 class WeChat
 {
-    public static  $wechatInstance = null;
+    public static $wechatInstance = null;
 
     /**
      * 设置微信实例
@@ -137,12 +137,12 @@ class WeChat
                 );
 
                 $params['sign'] = Ai::getReqSign($params, $appkey);
-                Log::info($params);
                 // 执行API调用
-                $url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans';
+                $url      = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans';
                 $response = Ai::doHttpPost($url, $params);
-//                Log::info($response);
-                return json_decode($response)->data->trans_text;
+                $msg      = json_decode($response)->data->org_text . "";
+                $msg      .= json_decode($response)->data->trans_text;
+                return $msg;
                 break;
         }
     }
@@ -152,7 +152,7 @@ class WeChat
      * @param $msg
      * @return mixed
      */
-    public static function sendTextMessage($member_id,$msg)
+    public static function sendTextMessage($member_id, $msg)
     {
         $message = new Text($msg);
         return self::$wechatInstance->customer_service->message($message)->to("oGpl_wpt1lW4F6-WSnjh2p6752Kc")->send();
