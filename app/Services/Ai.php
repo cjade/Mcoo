@@ -52,6 +52,7 @@ class Ai
 
         $response = false;
         do {
+            Log::info("dsad");
             // 1. 设置HTTP URL (API地址)
             curl_setopt($curl, CURLOPT_URL, $url);
 
