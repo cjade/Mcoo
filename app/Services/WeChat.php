@@ -126,6 +126,7 @@ class WeChat
                 return "<a href='https://www.mcoo.me/'>博客首页</a>";
                 break;
             default:
+                Log::info("123");
                 $appkey = 'xzrrGbOwqGLzBnwc';
                 $params = array(
                     'app_id'     => '1106735222',
@@ -141,7 +142,7 @@ class WeChat
                 // 执行API调用
                 $url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans';
                 $response = Ai::doHttpPost($url, $params);
-                Log::info("123");
+
                 return json_decode($response)->data->trans_text;
                 break;
         }
