@@ -140,7 +140,7 @@ class WeChat
                 // 执行API调用
                 $url      = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans';
                 $response = Ai::doHttpPost($url, $params);
-                $msg      = json_decode($response)->data->org_text . "";
+                $msg      = json_decode($response)->data->org_text . "\n";
                 $msg      .= json_decode($response)->data->trans_text;
                 return $msg;
                 break;
