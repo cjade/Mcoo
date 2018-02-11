@@ -49,7 +49,7 @@ class Ai
     public static function doHttpPost($url, $params)
     {
         $curl = curl_init();
-
+        Log::info("dsad123");
         $response = false;
         do {
             Log::info("dsad");
