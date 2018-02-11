@@ -13,7 +13,7 @@ use EasyWeChat\Kernel\Messages\NewsItem;
 use EasyWeChat\Kernel\Messages\Text;
 use Illuminate\Support\Facades\Log;
 
-class WeChatController
+class WeChat
 {
     public static  $wechatInstance = null;
 
@@ -126,7 +126,22 @@ class WeChatController
                 return "<a href='https://www.mcoo.me/'>博客首页</a>";
                 break;
             default:
-                return '你是不是傻!';
+                $appkey = 'xzrrGbOwqGLzBnwc';
+                $params = array(
+                    'app_id'     => '1106735222',
+                    'type'       => '0',
+                    'text'       => $message['Content'],
+                    'time_stamp' => strval(time()),
+                    'nonce_str'  => strval(rand()),
+                    'sign'       => '',
+                );
+
+                $params['sign'] = Ai::getReqSign($params, $appkey);
+
+                // 执行API调用
+                $url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans';
+                $response = Ai::doHttpPost($url, $params);
+                return json_decode($response)->data->trans_text;
                 break;
         }
     }

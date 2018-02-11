@@ -9,7 +9,7 @@
 namespace App\Http\Controllers\WeChat;
 
 use App\Http\Controllers\Controller;
-use App\Services\WeChatController as WeChat;
+use App\Services\WeChat;
 
 class WeChatController extends Controller
 {
