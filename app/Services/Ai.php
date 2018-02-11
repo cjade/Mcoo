@@ -9,6 +9,8 @@
 namespace App\Services;
 
 
+use Illuminate\Support\Facades\Log;
+
 class Ai
 {
     // getReqSign ：根据 接口请求参数 和 应用密钥 计算 请求签名
@@ -48,7 +50,7 @@ class Ai
     {
         $curl = curl_init();
 
-//        $response = false;
+        $response = false;
         do {
             // 1. 设置HTTP URL (API地址)
             curl_setopt($curl, CURLOPT_URL, $url);
@@ -71,6 +73,7 @@ class Ai
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             $response = curl_exec($curl);
+            Log::info($response);
             if ($response === false) {
                 $response = false;
                 break;
