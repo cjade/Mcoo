@@ -48,7 +48,7 @@ class Ai
     {
         $curl = curl_init();
 
-        $response = false;
+//        $response = false;
         do {
             // 1. 设置HTTP URL (API地址)
             curl_setopt($curl, CURLOPT_URL, $url);
