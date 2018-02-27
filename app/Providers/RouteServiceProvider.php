@@ -69,9 +69,10 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+
         Route::middleware('api')
             ->domain('wxadoc.mcoo.me')
-            ->namespace($this->namespace)
+            ->namespace($this->namespace.'\Wxadoc')
             ->group(base_path('routes/wxadoc.php'));
     }
 }
